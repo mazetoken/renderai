@@ -1,3 +1,19 @@
+web3 = new Web3(window.ethereum);
+ethereum.request({ method: 'eth_requestAccounts' });
+var zombieMaster;
+const getAccount = async () => {    
+try {
+const accounts = await ethereum.request({ method: 'eth_accounts' });
+zombieMaster = accounts[0];
+    console.log(zombieMaster);
+return accounts[0];
+    } catch (err) {
+        console.log(err);
+    }
+}
+getAccount();
+etehreum.request({ method: 'eth_accounts' }).defaultAccount = ethereum.request({ method: 'eth_accounts' }).accounts[0];
+
 function wallet() {
     var content = "";
     var event = contractRenderaiNFT.methods.balanceOf(zombieMaster).call({ from: zombieMaster })
@@ -26,7 +42,6 @@ function sendNFT() {
         .then(function (receipt) {
             console.log(receipt);
     var content = "Transaction sent!: ";
-            alert("Done!");
     content += JSON.stringify(receipt.transactionHash);
     $("#lang2").html(content);
         });;
@@ -61,24 +76,61 @@ function buyNFT() {
         .then(function (receipt) {
             console.log(receipt);
     var content = "Transaction sent!: ";
-            alert("Done! You bought it.");
     content += JSON.stringify(receipt.transactionHash);
     $("#lang4").html(content);
         });;
 };
 
-function withdraw() {
-    var tokenId3 = $("#tokenId3").val();
-    var content = "Sending transaction from: ";
+function approve() {
+    //var amount1 = $("#amount1").val();
+    //var amount2 = amount1 *1000000000000000000;
+    //var amount3 = amount2.toString();
+    var amount4 = 21000000000000000000000;
+    var content = "Approving transaction from: ";
     content += zombieMaster;
     $("#lang5").html(content);
-    var event = contractRenderaiNFTSale.methods.withdrawNft(tokenId3).send({ from: zombieMaster })
+    var event = contractBlockchainInvaders.methods.approve("0x8a17CEb0ba38A5fb1dA8B47AA990E12054862a85", amount4).send({ from: zombieMaster })
+        .then(function (receipt) {
+            console.log(receipt);
+    var content = "Approved!: ";
+            //alert("Done. BODO approved!")
+    content += JSON.stringify(receipt.transactionHash);
+    $("#lang5").html(content);
+        });;
+};
+
+function buyNFT2() {
+    //var tokenId3 = $("#tokenId3").val();
+    //var amount1 = $("#amount1").val();
+    //var amount2 = amount1 *1000000000000000000;
+    //var amount3 = amount2.toString();
+    var amount4 = 21000000000000000000000;
+    var content = "Sending transaction from: ";
+    content += zombieMaster;
+    $("#lang6").html(content);
+    for(var i = 0; i < 10001; i++){
+    var event = contractNFTSale.methods.buyNft(zombieMaster, i, amount4).send({ from: zombieMaster})
         .then(function (receipt) {
             console.log(receipt);
     var content = "Transaction sent!: ";
             alert("Done! You bought it.");
     content += JSON.stringify(receipt.transactionHash);
-    $("#lang5").html(content);
+    $("#lang6").html(content);
+        });;
+    };
+  };
+
+function withdraw() {
+    var tokenId3 = $("#tokenId3").val();
+    var content = "Sending transaction from: ";
+    content += zombieMaster;
+    $("#lang7").html(content);
+    var event = contractRenderaiNFTSale.methods.withdrawNft(tokenId3).send({ from: zombieMaster })
+        .then(function (receipt) {
+            console.log(receipt);
+    var content = "Transaction sent!: ";
+    content += JSON.stringify(receipt.transactionHash);
+    $("#lang7").html(content);
         });;
   };
 
@@ -86,13 +138,12 @@ function withdraw() {
     var address2 = $("#address2").val();
     var content = "Sending transaction from: ";
     content += zombieMaster;
-    $("#lang6").html(content);
+    $("#lang9").html(content);
     var event = contractRenderaiNFTSale.methods.transferValue(address2).send({ from: zombieMaster })
         .then(function (receipt) {
             console.log(receipt);
     var content = "Transaction sent!: ";
-            alert("Done! You bought it.");
     content += JSON.stringify(receipt.transactionHash);
-    $("#lang6").html(content);
+    $("#lang9").html(content);
         });;
   };
