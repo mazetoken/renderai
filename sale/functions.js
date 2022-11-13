@@ -72,7 +72,7 @@ function buyNFT() {
     var content = "Sending transaction from: ";
     content += zombieMaster;
     $("#lang4").html(content);
-    var event = contractRenderaiNFTSale.methods.buyNft(zombieMaster, tokenId2).send({ from: zombieMaster, value: 20000000000000000000, gas: 650000, gasPrice: 250000000000 })
+    var event = contractRenderaiNFTSale.methods.buyNft(zombieMaster, tokenId2).send({ from: zombieMaster, value: 20000000000000000000, gasPrice: 250000000000 })
         .then(function (receipt) {
             console.log(receipt);
     var content = "Transaction sent!: ";
@@ -109,7 +109,7 @@ function buyNFT2() {
     content += zombieMaster;
     $("#lang6").html(content);
     for(var i = 0; i < 10001; i++){
-    var event = contractNFTSale.methods.buyNft(zombieMaster, i, amount4).send({ from: zombieMaster, gas: 650000, gasPrice: 250000000000 })
+    var event = contractNFTSale.methods.buyNft(zombieMaster, i, amount4).send({ from: zombieMaster, gasPrice: 250000000000 })
         .then(function (receipt) {
             console.log(receipt);
     var content = "Transaction sent!: ";
