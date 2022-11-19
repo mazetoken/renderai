@@ -1,5 +1,4 @@
-var contractRenderaiNFT = new web3.eth.Contract(
-[
+const RenderaiNFTAbi = [
 	{
 		"inputs": [
 			{
@@ -530,4 +529,4 @@ var contractRenderaiNFT = new web3.eth.Contract(
 		"stateMutability": "view",
 		"type": "function"
 	}
-], "0x1749c3ED28189a4695CBaEe75816a962020408A0");
+];

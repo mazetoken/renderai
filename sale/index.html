@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>RENDERAI NFT Wallet & Sale</title>
+<title>RENDERAI NFT</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="RENDERAI NFT Wallet & Sale">
+<meta name="description" content="RENDERAI NFT">
 <meta name="web" content="">
 <link rel="icon" type="image/ico" sizes="32x32" href="../img/favicon.ico">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -25,9 +25,11 @@ body {background-color: black;}
     <p><button onclick="window.location.href='../index.html';" class="button button1">Home</button></p>
     <h1 class="w3-center w3-black w3-xxxlarge">RENDERAI NFT Wallet & Sale</h1><br>
     <p class="w3-center w3-black"><img src="../img/sale.png" alt="RenderaiSale" width="256"></p>
-    <p class="w3-center w3-black"><i>You need a wallet (e.g. MetaMask) connected to <a href="https://dogechain.dog">Dogechain</a><br><img src="../img/dogechain.png" alt="Dogechain" width="56"><br>
-      Reload the page if you are not connected or undefined</i>
-    </p>
+    <!-- <img src="../img/sale1200.png" alt="RenderaiSale" style="width:100%"> -->
+    <br>
+    <p class="w3-center w3-black">You need a wallet (e.g. MetaMask) connected to <a href="https://dogechain.dog">Dogechain</a><br><img src="../img/dogechain.png" alt="Dogechain" width="56"></p>
+    <p class="w3-center"><button id="connect" class="button button1">Connect wallet</button></p>
+    <p class="w3-center w3-black" style="font-size: 16px;">Connected to: <span id="wallet-address"></span></p>
     <br>
 
     <hr>
@@ -36,15 +38,15 @@ body {background-color: black;}
     <br>
     <div class="w3-row">
       <div class="w3-center w3-black">
-        <button onclick="wallet()" class="button button1">View your RENDERAI NFTs</button>
-        <p><i>Wait a few seconds. Reload if you don`t see images.</i></p>
+        <button id="wallet" class="button button1">View your RENDERAI NFTs</button>
+        <p><i>Wait a few seconds</i></p>
         <p></p>
         <div id="lang1"></div>
         <br>
         <input id="address1" type="text" size="40" placeholder="address"><br>
         <input id="tokenId1" type="text" size="10" placeholder="tokenId"><br>
-        <button onclick="sendNFT()" class="button button1">Send</button>
-        <p><i>Send RENDERAI NFT to somebody</i></p>
+        <button id="sendNFT" class="button button1">Send</button>
+        <p><i>Send RENDERAI NFT to somebody<br>Wait for confirmation</i></p>
         <div id="lang2"></div>
         <br>
       </div>
@@ -56,60 +58,49 @@ body {background-color: black;}
     <br>
     <div class="w3-row">
       <div class="w3-center w3-black">
-        <button onclick="wallet2()" class="button button1">View RENDERAI NFTs for sale</button>
+        <h3>Buy RENDERAI NFT for WDOGE</h3>
+        <br><br>
+        <button id="wallet2" class="button button1">View RENDERAI NFTs for sale / WDOGE</button>
         <p><i>Wait a few seconds</i></p>
         <p></p>
         <div id="lang3"></div>
         <br>
         <input id="tokenId2" type="text" size="10" placeholder="tokenId"><br>
-        <button onclick="buyNFT()" class="button button1">buy RENDERAI NFT</button>
-        <p><i>Fixed price: 20 WDOGE</i></p>
+        <button id="buyNFT" class="button button1">buy RENDERAI NFT</button>
+        <p><i>Fixed price: 20 WDOGE<br>Wait for confirmation</i></p>
         <div id="lang4"></div>
         <br>
-        <p>Buy random RENDERAI NFT for <a href="https://invaders.doge.wf">BLOCKCHAIN INVADERS</a> (INVADERS)<br>
-        <i>coming soon</i></p>
-        <br>
-        <!-- <input id="tokenId2" type="text" size="10" placeholder="tokenId"><br>
-        <button onclick="approve()" class="button button1">Approve INVADERS</button>
-        <p></p>
-        <div id="lang5"></div>
-        <br>
-        <button onclick="buyNFT2()" class="button button1">buy RENDERAI NFT</button>
-        <p><i>Fixed price: 21000 INVADERS</i></p>
-        <div id="lang6"></div>
-        <br><br> -->
-        <!-- <input id="tokenId3" type="text" size="10" placeholder="tokenId"><br>
-        <button onclick="withdraw()" class="button button1">Withdraw NFT from the contract</button>
+        <!-- <input id="tokenId4" type="text" size="10" placeholder="tokenId"><br>
+        <button id="withdrawN" class="button button1">Withdraw NFT from the contract</button>
         <p><i>Contract owner only</i></p>
-        <div id="lang7"></div>
+        <div id="lang8"></div>
         <br>
-        <input id="address2" type="text" size="40" placeholder="address"><br>
-        <button onclick="transferV()" class="button button1">Transfer WDOGE from the contract</button>
+        <input id="addressOwner" type="text" size="40" placeholder="address"><br>
+        <button id="transferVN" class="button button1">Transfer WDOGE from the contract</button>
         <p><i>Contract owner only</i></p>
         <div id="lang9"></div>
         <br> -->
+        <br>
       </div>
     </div>
     
   </div>
 
-  <footer class="w3-light-grey w3-padding-24 w3-center" id="about">
-    <p>RENDERAI NFT Sale contract (verified):<br><a href="https://explorer.dogechain.dog/address/0xa2f942Be9F56B119DDEA76BA50eEcF437deB4459/transactions">0xa2f942Be9F56B119DDEA76BA50eEcF437deB4459</a><br>
-      <a href="https://explorer.dogmoney.money/address/0xa2f942Be9F56B119DDEA76BA50eEcF437deB4459/transactions">0xa2f942Be9F56B119DDEA76BA50eEcF437deB4459</a>
+  <footer class="w3-light-grey w3-padding-16 w3-center" id="about">
+    <p>RENDERAI NFT Sale contract (verified) / WDOGE:<br><a href="https://explorer.dogechain.dog/address/0xa2f942Be9F56B119DDEA76BA50eEcF437deB4459/transactions">0xa2f942Be9F56B119DDEA76BA50eEcF437deB4459</a><br>
+      <!-- <a href="https://explorer.dogmoney.money/address/0xa2f942Be9F56B119DDEA76BA50eEcF437deB4459/transactions">0xa2f942Be9F56B119DDEA76BA50eEcF437deB4459</a> -->
     </p>
     <br>
     <p><a href="https://t.me/RenderaiArt"><img src="../img/telegram.png" alt="Telegram" width="32"></a> <a href="https://twitter.com/RenderaiArt"><img src="../img/twitter.png" alt="Twitter" width="32"></a>
-      <a href="https://github.com/mazetoken/contracts"><img src="../img/github.png" alt="Github" width="32"></a>
+      <a href="https://github.com/mazetoken/contracts/tree/main/RenderaiNFT"><img src="../img/github.png" alt="Github" width="32"></a>
       <!-- <a href="https://mazetoken.github.io"><img src="../img/mtu576.png" alt="MAZE Tokens" width="32"></a> -->
     </p>
     <p><a href="https://www.w3schools.com/w3css/default.asp" target="_blank" class="w3-hover-text-green">w3.css</a></p>
   </footer> 
 
   <script src="functions.js"></script>
-  <script src="contractRenderaiNFT.js"></script>
-  <script src="contractRenderaiNFTSale.js"></script>
-  <!-- <script src="contractNFTSale.js"></script>
-  <script src="contractBlockchainInvaders.js"></script> -->
+  <script src="RenderaiNFTAbi.js"></script>
+  <script src="RenderaiNFTSaleAbi.js"></script>
 
 </body>
 </html>

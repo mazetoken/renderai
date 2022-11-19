@@ -1,5 +1,4 @@
-var contractRenderaiNFTSale = new web3.eth.Contract(
-[
+const RenderaiNFTSaleAbi = [
 	{
 		"anonymous": false,
 		"inputs": [
@@ -164,4 +163,4 @@ var contractRenderaiNFTSale = new web3.eth.Contract(
 		"stateMutability": "view",
 		"type": "function"
 	}
-], "0xa2f942Be9F56B119DDEA76BA50eEcF437deB4459");
+];
