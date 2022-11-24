@@ -2,6 +2,7 @@ var account = null;
 var contract = null;
 const ADDRESS1 = "0x1749c3ED28189a4695CBaEe75816a962020408A0";
 const ADDRESS2 = "0xa2f942Be9F56B119DDEA76BA50eEcF437deB4459";
+const ADDRESS3 = "0xb58904a0328abACf05b288E51a578471A8317B70";
 
 document.getElementById('connect').onclick = async () => {
 if (window.ethereum) {
@@ -14,6 +15,7 @@ if (window.ethereum) {
     document.getElementById('wallet-address').textContent = account;
     contract1 = new web3.eth.Contract(RenderaiNFTAbi, ADDRESS1);
     contract2 = new web3.eth.Contract(RenderaiNFTSaleAbi, ADDRESS2);
+    contract3 = new web3.eth.Contract(BIabi, ADDRESS3);
 
     document.getElementById('wallet').onclick = async () => {
         var content = "";
@@ -73,7 +75,7 @@ if (window.ethereum) {
         var content = "Sending transaction from: ";
         content += account;
         $("#lang4").html(content);
-        contract2.methods.buyNft(account, tokenId2).send({ from: account, value: 20000000000000000000, gas: 150000, gasPrice: 250000000000 })
+        contract2.methods.buyNft(account, tokenId2).send({ from: account, value: 5000000000000000000, gas: 150000, gasPrice: 250000000000 })
             .then(function (receipt) {
                 console.log(receipt);
         var content = "Transaction id: ";
