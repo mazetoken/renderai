@@ -75,7 +75,7 @@ if (window.ethereum) {
         var content = "Sending transaction from: ";
         content += account;
         $("#lang4").html(content);
-        contract2.methods.buyNft(account, tokenId2).send({ from: account, value: 5000000000000000000, gas: 150000, gasPrice: 250000000000 })
+        contract2.methods.buyNft(account, tokenId2).send({ from: account, value: 15000000000000000000, gas: 150000, gasPrice: 250000000000 })
             .then(function (receipt) {
                 console.log(receipt);
         var content = "Transaction id: ";
