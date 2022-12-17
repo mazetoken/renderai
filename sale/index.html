@@ -8,8 +8,6 @@
 <meta name="web" content="">
 <link rel="icon" type="image/ico" sizes="32x32" href="../img/favicon.ico">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<!-- <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.1/dist/jquery.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/web3@1.8.0/dist/web3.min.js" integrity="sha256-1TLx50r3wQ52OlAm5jSfpTwbN9MJ51NysfLmsXmUPDk=" crossorigin="anonymous"></script> -->
 <script src="web3.min.js"></script>
 <script src="jquery.min.js"></script>
 <style>
@@ -70,16 +68,31 @@ body {background-color: black;}
         <p><i>Fixed price: 15 WDOGE<br>Wait for confirmation.</i></p>
         <div id="lang4"></div>
         <br>
+        <button id="approveI" class="button button1">Approve Blockchain Invaders</button>
+        <p><i>You need to approve before you buy. Wait for confirmation.</i></p>
+        <div id="lang5"></div>
+        <br>
+        <input id="tokenId3" type="text" size="10" placeholder="tokenId"><br>
+        <button id="buyNFT2" class="button button1">buy RENDERAI NFT</button>
+        <p><i>Fixed price: 50000 BLOCKCHAIN INVADERS (INVADERS)<br>Wait for confirmation.</i><br>
+        When you buy RENDERAI NFT 25% INVADERS is burned.<br>
+        You can claim INVADERS from <a href="https://blockchaininvaders.netlify.app">the factory</a> or buy on QuickSwap DEX.</p>
+        <div id="lang6"></div>
+        <br>
         <!-- <input id="tokenId4" type="text" size="10" placeholder="tokenId"><br>
         <button id="withdrawN" class="button button1">Withdraw NFT from the contract</button>
+        <p><i>Contract owner only</i></p>
+        <div id="lang7"></div>
+        <br>
+        <button id="withdrawT" class="button button1">Withdraw tokens from the contract</button>
         <p><i>Contract owner only</i></p>
         <div id="lang8"></div>
         <br>
         <input id="addressOwner" type="text" size="40" placeholder="address"><br>
         <button id="transferVN" class="button button1">Transfer WDOGE from the contract</button>
         <p><i>Contract owner only</i></p>
-        <div id="lang9"></div>
-        <br> -->
+        <div id="lang9"></div> -->
+        <br>
         <br>
       </div>
     </div>
@@ -87,7 +100,7 @@ body {background-color: black;}
   </div>
 
   <footer class="w3-light-grey w3-padding-16 w3-center" id="about">
-    <p>RENDERAI NFT Sale contract (verified):<br><a href="https://explorer.dogechain.dog/address/0xa2f942Be9F56B119DDEA76BA50eEcF437deB4459/transactions">0xa2f942Be9F56B119DDEA76BA50eEcF437deB4459</a><br>
+    <p>RENDERAI NFT Sale contract (verified):<br><a href="https://explorer.dogechain.dog/address/0x6949c8d5c6bDa32e89d6e4594DFd8B7C33A5fdCf">0x6949c8d5c6bDa32e89d6e4594DFd8B7C33A5fdCf</a><br>
       <!-- <a href="https://explorer.dogmoney.money/address/0xa2f942Be9F56B119DDEA76BA50eEcF437deB4459/transactions">0xa2f942Be9F56B119DDEA76BA50eEcF437deB4459</a> -->
     </p>
     <br>
@@ -100,8 +113,9 @@ body {background-color: black;}
 
   <script src="functions.js"></script>
   <script src="RenderaiNFTAbi.js"></script>
-  <script src="RenderaiNFTSaleAbi.js"></script>
-  <!-- <script src="BIabi.js"></script> -->
+  <script src="RenderaiNFTSaleV2Abi.js"></script>
+  <script src="BlockchainInvadersAbi.js"></script>
+  <script src="bignumber.js"></script>
 
 </body>
 </html>
