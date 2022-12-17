@@ -86,7 +86,7 @@ if (window.ethereum) {
         //var amount1 = $("#amount1").val();
         //var amount2 = amount1 *1000000000 *1000000000;
         //var amount3 = amount2.toString();
-        var amount = 50000;
+        var amount = 500000;
         let amount1 = new BigNumber(amount * 1000000000000000000);
         amount1.toString();
         var content = "Approving transaction from: ";
